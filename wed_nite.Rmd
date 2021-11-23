@@ -1,0 +1,76 @@
+---
+title: "Wed_Inclass"
+author: "Carolina Alameda"
+date: "11/17/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# This is a quick-turn challenge.  It relates to Question 2 of Quiz 8 in our course. Take a look at that quiz question and then.
+
+
+## The researchers wanted to know if the spiders could run faster, on average, without the hindrance of a pedipalp
+
+### Finish this writeUp and knit the result to a pdf file.  
+
+### Email the pdf as an attachment to wkitto1@avc.edu no later than 10 pm tonight
+
+### Think about what you would need to do to add this to your github account
+
+
+```{r, message=FALSE}
+require(tidyverse)
+require(tigerstats)
+require(abd)
+data("SpiderSpeed")
+```
+
+```{r}
+#mydata <- gather(SpiderSpeed, variable, value) 
+dat <- gather(SpiderSpeed, BorA, speed)
+```
+  
+## Boxplot
+        
+      
+
+```{r} 
+boxplot(speed~BorA,data=dat)  
+title("SpiderSpeed")
+```
+
+According to the graph, we can see the changes in speed before and after the pedipalp were amputated. You can see how the speed before the pedipalp was amputated was slower than the speed after the pedipalp was amputated. The black line on the plots show the median of speed.before and speed.after.
+
+  
+## Numerical Result
+       
+    
+
+```{r}
+favstats(speed~BorA,data=dat)
+```
+
+In this numerical result you can see the average the scientist were searching for. The average speed for the spiders for speed.before was 2.668 and the speed.after was 3.854. This explains how the speed before amputating the pedipalp was slower than the speed.after average. 
+  
+## Inferential
+  
+  
+```{r}
+t.test(speed~BorA,data=dat)
+```
+
+
+Based off the t.test, we can see that the p-value is very small at 0.0004611. To our knowledge we will base our decision soley off the p-value, we will reject this null hypothesis. 
+  
+## Conclusion
+  
+    
+So we can conclude, that the boxplot and numerical results show our mean. We can also see that our speed.before is before amputation and speed.after is after amputation. Our mean means the average. So we saw that the average of speed.before is 2.668125 and our speed.after is 3.853750. Which we can assume that the speed average is faster after amputation. The p-value was 0.0004611. So the p-value was pretty small. This means we will reject this null hypothesis. 
+
+
+
+
+
+
+
